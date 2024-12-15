@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
-import { Pound, Users, Clock, TrendingUp, Plus } from 'lucide-react';
+import { DollarSign, Users, Clock, TrendingUp, Plus } from 'lucide-react';
 import AppLayout from '@/components/layout/AppLayout';
 import StatsCard from '@/components/dashboard/StatsCard';
 import { useAuth } from '@/contexts/AuthContext';
@@ -38,7 +38,7 @@ const DashboardPage = () => {
       const payoutDate = new Date(group.nextPayoutDate);
       return !nearest || payoutDate < nearest ? payoutDate : nearest;
     }, null as Date | null),
-    savingsGrowth: 12.5 // This would come from actual calculations
+    savingsGrowth: 12.5
   };
 
   const handleCreateGroup = async (data: any) => {
@@ -89,7 +89,7 @@ const DashboardPage = () => {
           <StatsCard
             title="Total Savings"
             value={stats.activeSavings}
-            icon={<Pound className="h-6 w-6 text-green-500" />}
+            icon={<DollarSign className="h-6 w-6 text-green-500" />}
             isCurrency
             trend={{
               value: stats.savingsGrowth,
